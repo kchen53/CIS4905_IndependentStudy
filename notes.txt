@@ -1,0 +1,3 @@
+.gitignore 
+
+TypeScript is an object-oriented programming language.
