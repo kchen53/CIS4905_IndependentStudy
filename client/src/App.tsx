@@ -7,6 +7,7 @@ import NavBar from './components/navbar';
 import Contact from './pages/Contact';
 import Menu from './pages/Menu';
 import Login from './pages/Login';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {

@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const app = express();
 const dataBase = mongoose.connect("mongodb+srv://IndependentStudy:CIS4905@cluster0.tovs3lh.mongodb.net/?retryWrites=true&w=majority");
@@ -13,15 +14,6 @@ app.get('/', (req: Request, res: Response) => {
     res.send("hello world");
 });
 
-app.get('/menu', (req: Request, res: Response) => {
-  const menu = [
-    { id: 1, name: 'Burger', price: 10 },
-    { id: 2, name: 'Pizza', price: 12 },
-    { id: 3, name: 'Pasta', price: 8 },
-  ];
-
-  res.json(menu);
-});
 
 app.listen(5000);
 

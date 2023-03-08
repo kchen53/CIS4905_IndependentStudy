@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 export default function Menu() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="p-3">
+    <Navbar collapseOnSelect expand="sm" bg="dark" variant="dark" className="p-3">
       <Container>
         <Navbar.Brand href="/">Restaurant</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

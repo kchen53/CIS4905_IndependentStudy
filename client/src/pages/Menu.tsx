@@ -1,39 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import MenuCards from '../helperFunctions/menuCards'
+import Image from '../images/star.png'
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+import Card, { CardGroup, Col, Row } from 'react-bootstrap'
+import Lunch from '../menuParts/lunch'
+import Dinner from '../menuParts/dinner'
+import App from '../menuParts/app'
 
-interface MenuItem {
-  id: number;
-  name: string;
-  price: number;
-}
-
-function Menu() {
-  const [menu, setMenu] = useState<MenuItem[]>([]);
-
-  useEffect(() => {
-    fetch('/menu')
-      .then((res) => res.json())
-      .then((data) => setMenu(data))
-      .catch((err) => console.log(err));
-  }, []);
+export default function Menu() {
 
   return (
-    <Container>
-      <Row>
-        {menu.map((item) => (
-          <Col key={item.id} md={4}>
-            <Card style={{ width: '18rem' }}>
-              <Card.Body>
-                <Card.Title>{item.name}</Card.Title>
-                <Card.Text>${item.price}</Card.Text>
-                <Button variant="primary">Order</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-    </Container>
-  );
+    <Tabs
+      defaultActiveKey="home"
+      transition={false}
+      id="noanim-tab-example"
+      className="mb-3"
+    >
+      <Tab eventKey="lunch" title="Lunch">
+        <Lunch/>
+      </Tab>
+      <Tab eventKey="dinner" title="Dinner">
+        <Dinner/>
+      </Tab>
+      <Tab eventKey="app" title="App">
+        <App />
+      </Tab>
+    </Tabs>
+  )
 }
-
-export default Menu;
