@@ -1,3 +1,6 @@
+import { config } from 'dotenv';
+config();
+
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
@@ -10,7 +13,6 @@ const app = express();
 app.use(express.json());
 
 app.post('/menu', async (req: Request, res: Response) => {
-    console.log(req.body);
     const newMenu = new Menu({
         name: req.body.name,
         description: req.body.description,
@@ -20,13 +22,11 @@ app.post('/menu', async (req: Request, res: Response) => {
     res.json(createdMenu);
 });
 
-mongoose.connect(
-    "mongodb+srv://IndependentStudy:CIS4905@cluster0.tovs3lh.mongodb.net/?retryWrites=true&w=majority"
-).then(() => {
+mongoose.connect(process.env.MONGO_URL!).then(() => {
 
 console.log('listening on port ${PORT}');
  app.listen(PORT);   
-})
+});
 
 
 
