@@ -1,6 +1,12 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 
+interface MenuItem {
+  name: string;
+  description: string;
+  price: number;
+}
+
 function MenuCards(item:any, price:any, image:any, description:any) {
   return (
     <Card className="shawdowing" >
