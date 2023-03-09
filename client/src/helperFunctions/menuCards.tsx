@@ -7,11 +7,10 @@ interface MenuItem {
   price: number;
 }
 
-function MenuCards(item:any, price:any, image:any, description:any) {
+function MenuCards(item:any, price:any, description:any) {
   return (
     <Card className="shawdowing" >
       <Card.Title>{item}</Card.Title>
-      <Card.Img src={image}></Card.Img>
       <Card.Text>{description}</Card.Text>
       <Card.Subtitle>${price}</Card.Subtitle>
 
